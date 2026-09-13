@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../core/providers/navigation_provider.dart';
 import '../../core/providers/cart_provider.dart';
+import '../../core/providers/products_provider.dart';
 import '../../core/services/database_service.dart';
 import '../../core/models/service_model.dart';
 import '../../core/theme/colors.dart';
@@ -612,13 +613,18 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildProductsList(DatabaseService db) {
-    return FutureBuilder<List<ServiceModel>>(
-      future: db.getProducts(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+    return Consumer<ProductsProvider>(
+      builder: (context, productsProvider, child) {
+        if (productsProvider.isLoading && productsProvider.products.isEmpty) {
           return const SizedBox(height: 250, child: Center(child: CircularProgressIndicator()));
         }
-        final products = snapshot.data!;
+        final products = productsProvider.products;
+        if (products.isEmpty) {
+          return const SizedBox(
+            height: 250,
+            child: Center(child: Text('No hay productos disponibles')),
+          );
+        }
         return SizedBox(
           height: 310,
           child: ListView.builder(

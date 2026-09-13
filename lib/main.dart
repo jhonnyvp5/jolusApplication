@@ -15,6 +15,8 @@ import 'presentation/screens/notifications_screen.dart';
 import 'core/models/notification_model.dart';
 import 'core/services/notification_service.dart';
 
+import 'core/providers/products_provider.dart';
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
@@ -25,10 +27,14 @@ void main() async {
   final userProvider = UserProvider();
   await userProvider.loadUser();
 
+  // Instanciamos el proveedor de productos y activamos el refresco automático periódico
+  final productsProvider = ProductsProvider()..fetchProducts()..startPeriodicRefresh();
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: userProvider),
+        ChangeNotifierProvider.value(value: productsProvider),
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => OrderProvider()),
         ChangeNotifierProvider(create: (context) => NavigationProvider()),

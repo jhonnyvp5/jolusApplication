@@ -327,11 +327,10 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                // Lista de Productos desde Custom Backend (PHP/MySQL)
-                FutureBuilder<List<ServiceModel>>(
-                  future: _dbService.getProducts(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
+                // Lista de Productos en Tiempo Real (vía ProductsProvider)
+                Consumer<ProductsProvider>(
+                  builder: (context, productsProvider, child) {
+                    if (productsProvider.isLoading && productsProvider.products.isEmpty) {
                       return const Center(
                         child: Padding(
                           padding: EdgeInsets.all(40.0),
@@ -340,11 +339,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       );
                     }
 
-                    if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}'));
-                    }
-
-                    final allProducts = snapshot.data ?? [];
+                    final allProducts = productsProvider.products;
                     final searchQuery = navProvider.searchQuery;
 
                     var filteredProducts = selectedService == 'Todos'

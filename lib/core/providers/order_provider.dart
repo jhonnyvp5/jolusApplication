@@ -10,10 +10,17 @@ class OrderProvider extends ChangeNotifier {
 
   List<OrderModel> get orders => [..._orders];
   bool get isLoading => _isLoading;
+  Timer? _refreshTimer;
 
   Future<void> fetchOrders(String userId) async {
-    _isLoading = true;
-    notifyListeners();
+    if (userId.isEmpty) return;
+    
+    // Solo cargando si la lista está vacía para evitar parpadeos
+    final bool firstLoad = _orders.isEmpty;
+    if (firstLoad) {
+      _isLoading = true;
+      notifyListeners();
+    }
 
     try {
       final List<Map<String, dynamic>> data = await _dbService.getUserOrders(userId);
@@ -21,9 +28,32 @@ class OrderProvider extends ChangeNotifier {
     } catch (e) {
       debugPrint('Error al cargar pedidos: $e');
     } finally {
-      _isLoading = false;
+      if (firstLoad) {
+        _isLoading = false;
+      }
       notifyListeners();
     }
+  }
+
+  void startPeriodicRefresh(String userId) {
+    _refreshTimer?.cancel();
+    if (userId.isEmpty) return;
+    
+    // Polling cada 15 segundos para detectar cambios de estado (aprobación de comprobantes)
+    _refreshTimer = Timer.periodic(const Duration(seconds: 15), (timer) {
+      fetchOrders(userId);
+    });
+  }
+
+  void stopPeriodicRefresh() {
+    _refreshTimer?.cancel();
+    _refreshTimer = null;
+  }
+
+  @override
+  void dispose() {
+    _refreshTimer?.cancel();
+    super.dispose();
   }
 
   Future<List<DateTime>> getReservedDates() async {
