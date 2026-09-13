@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c5c5d3",
+                        "primary": "#00236f",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e1e9",
+                        "secondary": "#505f76",
+                        "surface-container-low": "#f4f3fa",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-container": "#f39461",
+                        "surface": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "surface-container-highest": "#e3e1e9",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-primary-container": "#90a8ff",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary": "#4b1c00",
+                        "on-primary-fixed": "#00164e",
+                        "background": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e9e7ef",
+                        "on-primary-fixed-variant": "#264191",
+                        "primary-fixed": "#dce1ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-secondary-fixed": "#0b1c30",
+                        "inverse-surface": "#2f3036",
+                        "secondary-fixed": "#d3e4fe",
+                        "inverse-on-surface": "#f1f0f7",
+                        "primary-container": "#1e3a8a",
+                        "on-surface": "#1a1b21",
+                        "surface-container": "#eeedf4",
+                        "on-background": "#1a1b21",
+                        "inverse-primary": "#b6c4ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "outline": "#757682",
+                        "on-surface-variant": "#444651",
+                        "on-secondary-container": "#54647a",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#6e2c00",
+                        "surface-dim": "#dad9e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "12px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Manrope"],
+                        "h2": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "h3": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center w-full px-5 py-3 sticky top-0 z-50 transition-colors duration-200">
+<div class="flex items-center gap-4">
+<a class="text-blue-900 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full transition-colors flex items-center justify-center" href="{{DATA:SCREEN:SCREEN_31}}">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</a>
+<h1 class="font-manrope font-semibold text-lg text-blue-900 dark:text-blue-400">Detalles de Pago</h1>
+</div>
+<div class="hidden md:flex gap-6">
+<nav class="flex gap-4">
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-medium text-label-md" href="#">Inicio</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-medium text-label-md" href="#">Reservas</a>
+<a class="text-blue-900 dark:text-blue-400 font-manrope font-bold text-label-md" href="#">Pagos</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope font-medium text-label-md" href="#">Perfil</a>
+</nav>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-5 py-6 space-y-8">
+<!-- Bank Accounts Carousel -->
+<section>
+<h2 class="font-h2 text-h2 text-primary mb-4">Cuentas Bancarias</h2>
+<div class="flex overflow-x-auto gap-4 pb-4 hide-scrollbar -mx-5 px-5 snap-x">
+<!-- Card 1 -->
+<div class="min-w-[300px] bg-primary text-on-primary rounded-xl p-6 shadow-lg snap-center flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="font-h3 text-h3">Banco Mercantil</span>
+<span class="material-symbols-outlined opacity-80" data-icon="account_balance">account_balance</span>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-xs opacity-70 uppercase tracking-wider">Nombre del Titular</span>
+<span class="font-semibold text-body-md">Jolus Services S.A.</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs opacity-70 uppercase tracking-wider">Número de Cuenta</span>
+<span class="font-semibold text-body-md tracking-widest">0105 1234 5678 9012 3456</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-xs opacity-70">RUC: 12345678-9</span>
+<span class="text-xs opacity-70">pagos@jolus-services.com</span>
+</div>
+<span class="bg-white/20 px-3 py-1 rounded-lg text-label-sm">Corriente</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[300px] bg-secondary text-on-primary rounded-xl p-6 shadow-lg snap-center flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="font-h3 text-h3">Banco Provincial</span>
+<span class="material-symbols-outlined opacity-80" data-icon="account_balance">account_balance</span>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-xs opacity-70 uppercase tracking-wider">Nombre del Titular</span>
+<span class="font-semibold text-body-md">Jolus Services S.A.</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs opacity-70 uppercase tracking-wider">Número de Cuenta</span>
+<span class="font-semibold text-body-md tracking-widest">0108 9876 5432 1098 7654</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-xs opacity-70">RUC: 12345678-9</span>
+<span class="text-xs opacity-70">transferencias@jolus.com</span>
+</div>
+<span class="bg-white/20 px-3 py-1 rounded-lg text-label-sm">Corriente</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Report Form -->
+<section class="bg-white border border-slate-200 rounded-xl p-6 space-y-6">
+<h2 class="font-h2 text-h2 text-primary">Reportar Pago</h2>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Nombre Completo</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="Ej: Juan Pérez" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Número de Identificación</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="Cédula o Pasaporte" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Fecha de Pago</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Nombre del Banco</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="Banco emisor" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Correo Electrónico</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="usuario@ejemplo.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-secondary block">Monto Pagado</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-secondary font-semibold">$</span>
+<input class="w-full pl-8 pr-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+<!-- Receipt Upload Section -->
+<div class="space-y-2 pt-4">
+<label class="font-label-md text-secondary block">Recibo de Pago</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 text-center bg-surface-container-low hover:bg-surface-variant transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-2 block group-hover:scale-110 transition-transform" data-icon="cloud_upload">cloud_upload</span>
+<p class="font-label-md text-primary font-semibold">Subir comprobante</p>
+<p class="text-xs text-secondary mt-1">Soporta JPG, PNG o PDF (Máx. 5MB)</p>
+</div>
+</div>
+</form>
+</section>
+<!-- Important Info Box -->
+<section class="bg-blue-50 border-l-4 border-primary p-5 rounded-r-xl flex gap-4">
+<span class="material-symbols-outlined text-primary shrink-0" data-icon="info">info</span>
+<div>
+<h4 class="font-label-md text-primary mb-1">Información Importante</h4>
+<p class="text-label-sm text-primary/80 leading-relaxed">
+                    Asegúrese de que toda la información sea correcta antes de enviarla. Su pago se procesará en un plazo de 1-3 días hábiles tras la verificación.
+                </p>
+</div>
+</section>
+<!-- Main Action Button -->
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-manrope font-semibold py-4 rounded-lg shadow-md hover:shadow-lg active:scale-[0.98] transition-all text-body-lg" id="submit-payment-btn">
+                Enviar Pago
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white dark:bg-slate-900 flex justify-around items-center px-2 py-3 border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-manrope text-[11px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+<span class="font-manrope text-[11px] font-medium">Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-900 dark:text-blue-300 rounded-2xl px-4 py-1 transition-transform scale-95 active:scale-90" href="{{DATA:SCREEN:SCREEN_31}}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-manrope text-[11px] font-medium">Carrito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-manrope text-[11px] font-medium">Historial</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-manrope text-[11px] font-medium">Perfil</span>
+</a>
+</nav>
+<!-- Success Modal -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm hidden animate-in fade-in duration-200" id="success-modal">
+<div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-2xl p-8 text-center shadow-2xl scale-95 transition-transform">
+<div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-5xl" style="font-variation-settings: 'FILL' 1">check_circle</span>
+</div>
+<h3 class="text-2xl font-h2 text-primary dark:text-blue-400 mb-2">¡Muchas gracias por su compra!</h3>
+<p class="text-secondary dark:text-slate-400 mb-8">
+                Su reporte de pago ha sido recibido correctamente. Recibirá una notificación una vez sea verificado.
+            </p>
+<a class="block w-full bg-primary hover:bg-primary-container text-on-primary font-manrope font-semibold py-4 rounded-lg shadow-md transition-all text-center" href="{{DATA:SCREEN:SCREEN_32}}">
+                Volver al Catálogo
+            </a>
+</div>
+</div>
+<script>
+      document.getElementById('submit-payment-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const modal = document.getElementById('success-modal');
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.firstElementChild.classList.replace('scale-95', 'scale-100');
+        }, 10);
+      });
+    </script>
+</body></html>

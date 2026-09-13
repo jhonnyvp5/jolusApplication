@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#444651",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "on-surface": "#1a1b21",
+                    "inverse-on-surface": "#f1f0f7",
+                    "surface-variant": "#e3e1e9",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-dim": "#dad9e1",
+                    "tertiary": "#4b1c00",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#dce1ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary": "#505f76",
+                    "surface-container-high": "#e9e7ef",
+                    "on-secondary": "#ffffff",
+                    "surface": "#faf8ff",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-tertiary-container": "#f39461",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container-low": "#f4f3fa",
+                    "on-secondary-fixed": "#0b1c30",
+                    "outline-variant": "#c5c5d3",
+                    "on-primary-container": "#90a8ff",
+                    "inverse-surface": "#2f3036",
+                    "surface-tint": "#4059aa",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-background": "#1a1b21",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary-fixed-variant": "#264191",
+                    "tertiary-fixed": "#ffdbcb",
+                    "background": "#faf8ff",
+                    "on-primary-fixed": "#00164e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeedf4",
+                    "primary-container": "#1e3a8a",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-bright": "#faf8ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e3e1e9",
+                    "primary": "#00236f",
+                    "tertiary-container": "#6e2c00",
+                    "outline": "#757682",
+                    "on-secondary-container": "#54647a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "margin": "20px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "2xl": "48px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Manrope"],
+                    "h2": ["Manrope"],
+                    "h1": ["Manrope"],
+                    "label-md": ["Inter"],
+                    "manrope": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #faf8ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-white/95 backdrop-blur-md text-blue-900 font-manrope font-semibold text-lg docked full-width top-0 sticky z-50 border-b border-slate-200 shadow-sm flex justify-between items-center w-full px-5 h-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-200">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm3EozFVXyxbyyr5I8er7UQnhBU3o1TwH-BiOW_lAs4PomKFqEiHAP4CaMmOFMq2EMuygPoYibgdIbNW7ltkboknGL4awEzcq-aV6QGU0JZy6wAVwgqU7f4lhzrB7GbQ5xj43bh3NFR3q7BgEqMlZsfKTWj9OYpH52LuFiTEAqXtHG-keRMCA8Ig7UHySMu-mR-zYNP3kSWGabc7BMmcACxLW_Lq3a8t-4OuWNPtigZxSer1R01HF1dmYKxYBXl-FdcJqzglKNAyY"/>
+</div>
+<span class="text-xl font-bold tracking-tight text-blue-900">Jolus Services</span>
+</div>
+<button class="p-2 hover:bg-slate-100 rounded-full transition-colors active:opacity-70">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+</button>
+</header>
+<main class="max-w-screen-md mx-auto px-5 pt-8 pb-32">
+<header class="mb-8">
+<h1 class="font-h1 text-h1 text-primary mb-2">Mi Carrito</h1>
+<p class="font-body-md text-on-surface-variant">Revisa tus servicios seleccionados para agendar.</p>
+</header>
+<!-- Cart Items -->
+<div class="space-y-4 mb-10">
+<!-- Item 1 -->
+<div class="bg-white border border-slate-200 rounded-xl p-4 flex gap-4 items-center">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Elegant wedding floral decoration and premium event furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Oivod7xeiCh33Pb-zfdXMYRff6AKgRfez2oxoODhyFXyijEF-YLHz2zFj0rNG58YIPplNUJofM8Kns1ke6Oo2p-lCiSp-DEpyUQmPDM5W-Ciu2PYo8Mzk02fVc_nJiLjl0DP4t4RsSTLvtlJvfLF0r1glFJGiPtZ1qjOKlWcBT54JpqO0Tol6OuP2YZVR7U89jm9a6dv_cwkSVQLYeoZNcuuIthB9yi9Xo3grnXk7l9MfDkSf1SGtBv2V-TlZo1IBtBidwk4hVU"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-primary">Decoración Premium (Boda)</h3>
+<button class="text-error hover:bg-error-container/20 p-1.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="font-label-sm text-on-surface-variant mt-1">Arreglos Florales y Mobiliario</p>
+<div class="flex justify-between items-center mt-3">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-full px-3 py-1">
+<button class="text-primary hover:opacity-70"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="font-label-md text-on-surface min-w-[12px] text-center">1</span>
+<button class="text-primary hover:opacity-70"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<span class="font-h3 text-h3 text-primary-container">$85.00</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white border border-slate-200 rounded-xl p-4 flex gap-4 items-center">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Professional gourmet catering service presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIHvRsdSrrTBITtxKHGTPJDXHwJTZrNKbvawo0_AaOltvQTTp4Z381jWaCY-HIhcuRwZYfwmXJACNtHrZlBdVvxPGO6LzrgRtTCV9oTcunzCobPTu_TUR8D5gXQjhRj8H_oI2pUwoPjngGaZlUNk5h0iRs4DQXsNVqILFesYq-nBqprxzc_3mkUaXRvWJlP6GlSz_SyVMz0jWQc46VsNMJclQlxlDpKhI-3kp_ZYZc_9UW_vS14-ygEijOgNayFFYVaDD6JqbpbPI"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-primary">Catering Gourmet (50 personas)</h3>
+<button class="text-error hover:bg-error-container/20 p-1.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<p class="font-label-sm text-on-surface-variant mt-1">Menú 3 Tiempos + Bebidas</p>
+<div class="flex justify-between items-center mt-3">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-full px-3 py-1">
+<button class="text-primary hover:opacity-70"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<span class="font-label-md text-on-surface min-w-[12px] text-center">2</span>
+<button class="text-primary hover:opacity-70"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<span class="font-h3 text-h3 text-primary-container">$120.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Date & Time Selection -->
+<section class="mb-10">
+<h2 class="font-h2 text-h2 text-primary mb-4">Fecha del Servicio</h2>
+<div class="bg-white border border-slate-200 rounded-xl p-5">
+<div class="flex items-center gap-3 mb-6 p-3 bg-primary-fixed/30 rounded-lg border border-primary-fixed">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<div>
+<p class="font-label-sm text-primary uppercase tracking-wider">Fecha Seleccionada</p>
+<p class="font-body-md font-bold text-primary">Sábado, 24 de Octubre, 2024</p>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center mb-2">
+<span class="font-label-sm text-slate-400">L</span>
+<span class="font-label-sm text-slate-400">M</span>
+<span class="font-label-sm text-slate-400">M</span>
+<span class="font-label-sm text-slate-400">J</span>
+<span class="font-label-sm text-slate-400">V</span>
+<span class="font-label-sm text-slate-400">S</span>
+<span class="font-label-sm text-slate-400">D</span>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<!-- Calendar Placeholders -->
+<button class="h-10 flex items-center justify-center rounded-lg text-slate-300 font-label-md">19</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-slate-300 font-label-md">20</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-on-surface font-label-md hover:bg-slate-100">21</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-on-surface font-label-md hover:bg-slate-100">22</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-on-surface font-label-md hover:bg-slate-100">23</button>
+<button class="h-10 flex items-center justify-center rounded-lg bg-primary text-white font-label-md shadow-md">24</button>
+<button class="h-10 flex items-center justify-center rounded-lg text-on-surface font-label-md hover:bg-slate-100">25</button>
+</div>
+<div class="mt-8 border-t border-slate-100 pt-6">
+<h3 class="font-label-sm text-primary uppercase tracking-wider mb-4">Hora Seleccionada</h3>
+<div class="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
+<button class="flex-shrink-0 px-6 py-2 rounded-full border border-slate-200 text-on-surface font-label-md hover:border-primary hover:text-primary transition-colors">09:00 AM</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-primary text-white font-label-md shadow-sm">11:00 AM</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full border border-slate-200 text-on-surface font-label-md hover:border-primary hover:text-primary transition-colors">01:00 PM</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full border border-slate-200 text-on-surface font-label-md hover:border-primary hover:text-primary transition-colors">03:00 PM</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full border border-slate-200 text-on-surface font-label-md hover:border-primary hover:text-primary transition-colors">05:00 PM</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Method Selection -->
+<section class="mb-10">
+<h2 class="font-h2 text-h2 text-primary mb-4">Método de Pago</h2>
+<div class="space-y-3">
+<!-- Credit Card Option -->
+<label class="flex items-center justify-between p-4 bg-white border-2 rounded-xl cursor-pointer transition-all border-slate-200">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Tarjeta de Crédito/Débito</p>
+<p class="font-label-sm text-on-surface-variant">Visa, Mastercard, AMEX</p>
+</div>
+</div>
+<input class="w-5 h-5 text-primary border-slate-300 focus:ring-primary" name="payment_method" type="radio" value="card"/>
+</label>
+<!-- Bank Transfer Option -->
+<label class="flex items-center justify-between p-4 bg-white border rounded-xl cursor-pointer hover:border-slate-300 transition-all border-2 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Transferencia Bancaria</p>
+<p class="font-label-sm text-on-surface-variant">Pago directo desde tu banca</p>
+</div>
+</div>
+<input checked="checked" class="w-5 h-5 text-primary border-slate-300 focus:ring-primary" name="payment_method" type="radio" value="transfer"/>
+</label>
+</div>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-low rounded-2xl p-6 border border-slate-200">
+<h2 class="font-h3 text-h3 text-primary mb-4">Resumen de Orden</h2>
+<div class="space-y-3 font-label-md text-on-surface-variant">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span class="text-on-surface font-semibold">$205.00</span>
+</div>
+<div class="flex justify-between">
+<span>Impuestos (7%)</span>
+<span class="text-on-surface font-semibold">$14.35</span>
+</div>
+<div class="flex justify-between">
+<span>Cargos por servicio</span>
+<span class="text-on-surface font-semibold">$5.00</span>
+</div>
+<div class="pt-3 mt-3 border-t border-slate-200 flex justify-between items-center">
+<span class="font-h2 text-h2 text-primary">Total</span>
+<span class="font-h1 text-h1 text-primary">$224.35</span>
+</div>
+</div>
+<a class="block w-full mt-8 bg-primary text-white text-center font-body-lg font-bold py-4 rounded-xl shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all" href="{{DATA:SCREEN:SCREEN_57}}">Proceder a pagar</a>
+<p class="text-center mt-4 font-label-sm text-slate-500">
+                Al confirmar, aceptas nuestros términos y condiciones.
+            </p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 font-manrope text-[11px] font-medium">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">apps</span>
+<span>Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-900 dark:text-blue-200 rounded-lg px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span>Carrito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Historial</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Perfil</span>
+</a>
+</nav>
+</body></html>

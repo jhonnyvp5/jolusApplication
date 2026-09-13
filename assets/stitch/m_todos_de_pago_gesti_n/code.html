@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dad9e1",
+                    "on-primary-fixed-variant": "#264191",
+                    "surface-bright": "#faf8ff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#4b1c00",
+                    "outline-variant": "#c5c5d3",
+                    "on-surface-variant": "#444651",
+                    "surface-tint": "#4059aa",
+                    "surface-container": "#eeedf4",
+                    "surface-container-low": "#f4f3fa",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1a1b21",
+                    "error": "#ba1a1a",
+                    "outline": "#757682",
+                    "surface-container-high": "#e9e7ef",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#b6c4ff",
+                    "surface": "#faf8ff",
+                    "background": "#faf8ff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "tertiary-container": "#6e2c00",
+                    "primary-fixed": "#dce1ff",
+                    "tertiary-fixed": "#ffdbcb",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1a1b21",
+                    "primary": "#00236f",
+                    "secondary-container": "#d0e1fb",
+                    "inverse-surface": "#2f3036",
+                    "secondary": "#505f76",
+                    "primary-container": "#1e3a8a",
+                    "on-tertiary-fixed": "#341100",
+                    "on-secondary-container": "#54647a",
+                    "on-primary-container": "#90a8ff",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-primary-fixed": "#00164e",
+                    "on-tertiary-container": "#f39461",
+                    "on-secondary-fixed": "#0b1c30",
+                    "inverse-on-surface": "#f1f0f7",
+                    "surface-container-highest": "#e3e1e9",
+                    "surface-variant": "#e3e1e9",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "margin": "20px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "2xl": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "h3": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "h1": ["Manrope"],
+                    "h2": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-fill .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 border-b border-[#E2E8F0] dark:border-slate-800 flex items-center w-full px-4 h-16 sticky top-0 z-50">
+<div class="flex items-center gap-4 w-full">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-50 dark:hover:bg-slate-900 active:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[#1E3A8A] dark:text-blue-400">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-semibold text-lg tracking-tight text-[#1E3A8A] dark:text-blue-400">Métodos de Pago</h1>
+</div>
+</header>
+<main class="px-margin py-lg max-w-2xl mx-auto space-y-lg">
+<!-- Cards List -->
+<section class="space-y-gutter">
+<h2 class="font-h2 text-h2 text-on-surface">Tus tarjetas</h2>
+<!-- Card Item: Visa -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:shadow-[0_4px_12px_rgba(30,58,138,0.05)] transition-shadow">
+<div class="flex items-center gap-md">
+<div class="w-12 h-8 bg-surface-container-high rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">credit_card</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Visa terminada en 4242</p>
+<p class="text-label-sm text-outline">Expira 12/26</p>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-xs text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Card Item: Mastercard -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:shadow-[0_4px_12px_rgba(30,58,138,0.05)] transition-shadow">
+<div class="flex items-center gap-md">
+<div class="w-12 h-8 bg-surface-container-high rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">payments</span>
+</div>
+<div>
+<p class="font-body-md font-semibold text-on-surface">Mastercard en 8891</p>
+<p class="text-label-sm text-outline">Expira 08/25</p>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-xs text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Add New Method Button -->
+<section>
+<button class="w-full flex items-center justify-center gap-xs bg-primary-container text-white font-semibold py-4 rounded-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-body-md">Añadir nuevo método de pago</span>
+</button>
+</section>
+<!-- Security Info -->
+<section class="bg-secondary-container/30 border border-secondary-container rounded-xl p-lg flex gap-md">
+<div class="shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant text-3xl" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+<div class="space-y-base">
+<h3 class="font-label-md text-on-secondary-fixed-variant">Pago Seguro</h3>
+<p class="text-label-md text-on-secondary-container leading-relaxed">
+                    Tus datos están protegidos con encriptación de grado bancario. Jolus Services no almacena el CVV de tus tarjetas.
+                </p>
+</div>
+</section>
+<!-- Decoration/Trust Image -->
+<div class="pt-xl opacity-80 grayscale">
+<img alt="Secure payment background" class="w-full h-32 object-cover rounded-xl" data-alt="Modern high-tech security interface with blue digital glowing lock and abstract data patterns on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7_JRYrY8Gy0eMfamoWr8hJBl4ntnsPDg8m0Qa5ZThtjh3WhqdGlSRPxolgzm8A9kXLJow5-0I1Vu9tfgCiB4BzGpi_MNaES4AqUmOlIuK0400Vf17abQ5IS_JAXZgd4SxRSjX9Lv8m3MoadQdSJIGzFj68em3PETv2IfTFVbEo_1h_6_V-v7EQSjZketXcgkRsHPzqijQWedCmC8VV8mz2L-hyKUf36Ut5Sggtko8mIKNXbACz2x4-wkY3vAuIOyGXMkBeCUlt2U"/>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 h-20 bg-white dark:bg-slate-950 border-t border-[#E2E8F0] dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+<!-- Inicio -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-400 active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Manrope'] text-[12px] font-medium mt-1">Inicio</span>
+</a>
+<!-- Servicios -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-400 active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">cleaning_services</span>
+<span class="font-['Manrope'] text-[12px] font-medium mt-1">Servicios</span>
+</a>
+<!-- Carrito -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-400 active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Manrope'] text-[12px] font-medium mt-1">Carrito</span>
+</a>
+<!-- Historial -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-400 active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Manrope'] text-[12px] font-medium mt-1">Historial</span>
+</a>
+<!-- Perfil (Active State) -->
+<a class="flex flex-col items-center justify-center text-[#1E3A8A] dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 rounded-lg py-1 px-3 active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Manrope'] text-[12px] font-bold mt-1">Perfil</span>
+</a>
+</nav>
+</body></html>

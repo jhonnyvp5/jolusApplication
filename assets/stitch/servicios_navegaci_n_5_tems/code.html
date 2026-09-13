@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jolus Services - Catálogo de Eventos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #faf8ff;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#444651",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "on-surface": "#1a1b21",
+                    "inverse-on-surface": "#f1f0f7",
+                    "surface-variant": "#e3e1e9",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-dim": "#dad9e1",
+                    "tertiary": "#4b1c00",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#dce1ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary": "#505f76",
+                    "surface-container-high": "#e9e7ef",
+                    "on-secondary": "#ffffff",
+                    "surface": "#faf8ff",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-tertiary-container": "#f39461",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container-low": "#f4f3fa",
+                    "on-secondary-fixed": "#0b1c30",
+                    "outline-variant": "#c5c5d3",
+                    "on-primary-container": "#90a8ff",
+                    "inverse-surface": "#2f3036",
+                    "surface-tint": "#4059aa",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-background": "#1a1b21",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary-fixed-variant": "#264191",
+                    "tertiary-fixed": "#ffdbcb",
+                    "background": "#faf8ff",
+                    "on-primary-fixed": "#00164e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeedf4",
+                    "primary-container": "#1e3a8a",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-bright": "#faf8ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e3e1e9",
+                    "primary": "#00236f",
+                    "tertiary-container": "#6e2c00",
+                    "outline": "#757682",
+                    "on-secondary-container": "#54647a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "margin": "20px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "2xl": "48px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Manrope"],
+                    "h2": ["Manrope"],
+                    "h1": ["Manrope"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 font-manrope">
+<!-- TopAppBar -->
+<header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm sticky top-0 z-50 flex justify-between items-center w-full px-5 h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="professional male profile headshot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaWBz22vfvUPL_FiY7S5jUifqMk37YdEpAPftdc_Kx9mJxJ2I9MgLmQUxtkptCZsOJ83HZ-JClngBB-R1-D4ZYpxdCSySx8o2A6PQZFtXfJTnmBGqpx2KyP-TMUdRPvcXHlhP6Jp1XHlQwrkOesgcIzunwzuiMe4w5B40fjiW5wrcpw7sGWDuigES484WCPgH3CNTOHx40MatodLi79qlrhP5tKu6nGjXwUBKHaFbdM10H0U9F9nlpnbOcCkHVyVd8nzcWm4xbxfc"/>
+</div>
+<span class="text-xl font-bold tracking-tight text-blue-900 dark:text-blue-50">Jolus Services</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-400">notifications</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto px-5 pt-8 space-y-8">
+<!-- Welcome & Search -->
+<section class="space-y-4">
+<div class="space-y-1">
+<h1 class="font-h1 text-h1 text-primary">Servicios para Eventos</h1>
+<p class="font-body-md text-body-md text-secondary">Diseñamos experiencias inolvidables para tus celebraciones.</p>
+</div>
+<div class="relative max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-md shadow-sm transition-all" placeholder="¿Qué necesitas para tu evento?" type="text"/>
+</div>
+</section>
+<!-- Filters/Chips -->
+<section class="overflow-x-auto pb-2 scrollbar-hide">
+<div class="flex gap-3 whitespace-nowrap">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md shadow-md">Todos</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Decoraciones</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Buffet</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Coctelería</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Entretenimiento</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Animaciones</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-secondary-container transition-colors font-label-md">Mobiliario</button>
+</div>
+</section>
+<!-- Service Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 - Decoraciones -->
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="elegant event decoration with pastel balloons and floral arrangements" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLZBIDMShWWect-asl4bqCRzSyg9_DDRbo07y4KXGlP_XWI9nD2vLKWappGRqBSvKgAKXvTZEJOFpDq7nafc03BNcMRCR94wp14xg6TENTwB2i2r5CJN667UV69bVkvvplQVSVFmIsEWzUNCauhDpGc2BxneoiTzJoV05x5PrOnqf6hhXmn8SKVDX48dHoNtdhkzw7VI1pLSxQJ_GYUcRZ1-UixTCpgmhsgwFRb0zT1QWA098yH_H3G3KdmseiKJMuEQJMrUFMJO8"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm uppercase tracking-wider">Decoraciones</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow space-y-4">
+<div class="space-y-2">
+<h3 class="font-h3 text-h3 text-on-surface">Diseño de Interiores</h3>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">Arcos de globos orgánicos, centros de mesa florales y temáticas personalizadas.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-slate-100">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">celebration</span>
+<span class="font-label-sm">Premium</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+<span class="font-label-sm">Custom</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 mt-auto">
+<div>
+<span class="font-label-sm text-secondary block">Desde</span>
+<span class="font-h2 text-h2 text-primary">$150.00</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-lg font-label-md transition-colors shadow-sm">
+                            Reservar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 2 - Buffet -->
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="luxury catering buffet table with gourmet food presentation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0e0tfipjvA3VPfdCObt7rl0r-jf7_rAbh5jEulctVJ299sz2VEO-GMcrAg0pdZHynEzlzDsu0PAGaGzYPzwLl1fNTfWWvlOHjR8YlxfUpSO6X40Xns0Cpc1L2-mbZgGyOjfGeijUFlhwzZLKoRf0jTXsJxC5i4RIh64ZGj6C9b8oDAFdKzZ0uz_8a3grhPKUcbbiCEF72S-b8nVHjZYIaZaIKvX6Bctvi6jfogHpFJIJ1P2h9P7UJYEvK_7OVTPNAg7vmOLXLhKo"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm uppercase tracking-wider">Buffet</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow space-y-4">
+<div class="space-y-2">
+<h3 class="font-h3 text-h3 text-on-surface">Catering Gourmet</h3>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">Variedad de platillos internacionales y estaciones de comida en vivo para sus invitados.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-slate-100">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+<span class="font-label-sm">Menú Chef</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span class="font-label-sm">Meseros</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 mt-auto">
+<div>
+<span class="font-label-sm text-secondary block">P/Persona</span>
+<span class="font-h2 text-h2 text-primary">$35.00</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-lg font-label-md transition-colors shadow-sm">
+                            Reservar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 3 - Coctelería -->
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="professional bartender preparing colorful cocktails at an event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdshlKZpA-JLH9GpdxMLlcqa3zr5aPp1K90zkS5BPuEP94tzksGWw-fvs1NGRKuG_CEfLEf8wv4aioDTI_IlAxEVLLh24E9ruODY27bt6BI-hV-ZHor7-_pbZnM1Sw_41ECiZ4_C5zWK7LtlHQqfGJStlKYlfMr-3_MTBzAgQocXxD3xNhgmvlZkfF6ZQf9I0-l-xbluFiC-vE-29-j5WckRqT5c0I3AHUgu1SxNPcNexu_ZabA44GWHW11S7H_WYaa3aM5t0E-UA"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm uppercase tracking-wider">Coctelería</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow space-y-4">
+<div class="space-y-2">
+<h3 class="font-h3 text-h3 text-on-surface">Barra Móvil Express</h3>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">Mixología creativa, cócteles clásicos y mocktails preparados por bartenders profesionales.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-slate-100">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">local_bar</span>
+<span class="font-label-sm">Open Bar</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span class="font-label-sm">4 Horas</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 mt-auto">
+<div>
+<span class="font-label-sm text-secondary block">Desde</span>
+<span class="font-h2 text-h2 text-primary">$200.00</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-lg font-label-md transition-colors shadow-sm">
+                            Reservar
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 4 - Entretenimiento (Asymmetric) -->
+<div class="lg:col-span-2 bg-primary-container rounded-xl overflow-hidden flex flex-col md:flex-row group hover:shadow-xl transition-all duration-300">
+<div class="md:w-2/5 relative">
+<img alt="live band performing on stage at a high-end corporate event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQJxJciC-PB8LA4gxLuz8bEf_rcne4cwe8pdJkBN7i-Weix-By3dHimQTxWreXMJYUBQEw3Qu2VN6nLQaHhKyEMUELojgni-71wy1jIUs6pCiaOF4RVrrXoDyZTYrbu35UQD1cPpG61ewbB8u_4hEHB-sFsP0lj3c1tjH-RuXYfvJdtcDIQfNYfBQ5XpcX0GuOb3s2hFP9ug99hdWMxYydy4-JddBeQ99rG3AZXzYod0eKnSUqzLl4RAr4pRmOTbaqayXcmSggLaY"/>
+</div>
+<div class="p-8 flex flex-col justify-center space-y-6 md:w-3/5">
+<div class="space-y-3">
+<span class="inline-block bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Servicio Estelar</span>
+<h3 class="font-h1 text-h2 text-white">Espectáculos en Vivo</h3>
+<p class="font-body-lg text-body-lg text-primary-fixed/80">Bandas musicales, DJs, shows de luces y artistas de performance para eventos corporativos y bodas de lujo.</p>
+</div>
+<div class="flex gap-6">
+<div class="text-white">
+<p class="font-label-sm opacity-60">Duración</p>
+<p class="font-label-md">Personalizado</p>
+</div>
+<div class="text-white">
+<p class="font-label-sm opacity-60">Inversión desde</p>
+<p class="font-h3">$450.00</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-3 rounded-lg font-bold hover:bg-surface-dim transition-colors">
+                            Ver Catálogo
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 5 - Mobiliario -->
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="elegant event chairs and tables setup in a garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD2mE5rqknXOnEsi8p_qzJqZ22dxu3Cps-AE-UVpU92sEAzejWgzDrH8GR1s43zPtjPSMmRmqs_XhKfuUPe4E6UCy3i9gwz6JcmRsGs8CSql43WaRpydqBZNtXQ5rpZFwgfal0nEcHEU_9_QRT6LmYnROL1WXKPHmF_XXoksf2FVir31urHDz9bSPh7IMrrwA1n6475rUtZfgBK8lgWw6UaYJQ2KO0hZ7z87rMCdp0SZfmCT6Bk0kTQTStng8qcJ-bAOvG0oYgeXc"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg">
+<span class="text-primary font-label-sm uppercase tracking-wider">Mobiliario</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow space-y-4">
+<div class="space-y-2">
+<h3 class="font-h3 text-h3 text-on-surface">Alquiler de Mobiliario</h3>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">Sillas Tiffany, mesas imperiales, salas lounge y estructuras decorativas modernas.</p>
+</div>
+<div class="flex items-center gap-4 py-2 border-y border-slate-100">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">chair</span>
+<span class="font-label-sm">Designer</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span class="font-label-sm">Incl. Montaje</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 mt-auto">
+<div>
+<span class="font-label-sm text-secondary block">Cotización</span>
+<span class="font-h2 text-h2 text-primary">Varía</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-lg font-label-md transition-colors shadow-sm">
+                            Consultar
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex justify-around items-center px-2 py-3 pb-safe shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[11px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-900 dark:text-blue-200 rounded-lg px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">apps</span>
+<span class="font-manrope text-[11px] font-medium">Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-manrope text-[11px] font-medium">Carrito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-manrope text-[11px] font-medium">Historial</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 hover:text-blue-700 dark:hover:text-blue-300 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[11px] font-medium">Perfil</span>
+</a>
+</nav>
+</body></html>
