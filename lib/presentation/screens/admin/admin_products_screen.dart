@@ -43,6 +43,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
     final stockController = TextEditingController(text: product?.cantidad.toString());
     final descController = TextEditingController(text: product?.descripcion);
     String selectedCategory = product?.categoria ?? 'Basico';
+    String selectedTag = (product?.etiqueta == null || product!.etiqueta!.isEmpty) ? 'Sin etiqueta' : product.etiqueta!;
 
     showModalBottomSheet(
       context: context,
@@ -73,6 +74,13 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                 onChanged: (val) => selectedCategory = val!,
                 decoration: const InputDecoration(labelText: 'Categoría'),
               ),
+              const SizedBox(height: 16),
+              DropdownButtonFormField<String>(
+                value: ['Sin etiqueta', 'Oferta', 'Descuento', 'Nuevo'].contains(selectedTag) ? selectedTag : 'Sin etiqueta',
+                items: ['Sin etiqueta', 'Oferta', 'Descuento', 'Nuevo'].map((t) => DropdownMenuItem(value: t, child: Text(t))).toList(),
+                onChanged: (val) => selectedTag = val!,
+                decoration: const InputDecoration(labelText: 'Etiqueta Especial'),
+              ),
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
@@ -88,6 +96,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                       categoria: selectedCategory,
                       servicio: 'General',
                       imagen: product?.imagen,
+                      etiqueta: selectedTag == 'Sin etiqueta' ? null : selectedTag,
                     );
 
                     if (isEditing) {

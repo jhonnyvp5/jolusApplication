@@ -8,6 +8,7 @@ class ServiceModel {
   final double precio;
   final String? imagen;
   final String? productoId;
+  final String? etiqueta; // Oferta, Descuento, Nuevo, etc.
 
   ServiceModel({
     required this.id,
@@ -19,6 +20,7 @@ class ServiceModel {
     required this.precio,
     this.imagen,
     this.productoId,
+    this.etiqueta,
   });
 
   factory ServiceModel.fromJson(Map<String, dynamic> json) {
@@ -32,6 +34,7 @@ class ServiceModel {
       precio: double.tryParse(json['precio']?.toString() ?? '0') ?? 0.0,
       imagen: json['imagen'],
       productoId: json['producto_id']?.toString(),
+      etiqueta: json['etiqueta']?.toString(),
     );
   }
 
@@ -44,6 +47,7 @@ class ServiceModel {
       'servicio': servicio,
       'precio': precio,
       'imagen': imagen,
+      'etiqueta': etiqueta,
     };
     
     if (id.isNotEmpty) {

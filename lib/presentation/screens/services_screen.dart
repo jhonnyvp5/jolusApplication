@@ -8,6 +8,7 @@ import '../../core/providers/navigation_provider.dart';
 import '../../core/providers/user_provider.dart';
 import '../../core/providers/notification_provider.dart';
 import '../../core/providers/cart_provider.dart';
+import '../../core/providers/products_provider.dart';
 import '../widgets/filter_chip.dart';
 import '../widgets/service_detail_card.dart';
 import 'notifications_screen.dart';
