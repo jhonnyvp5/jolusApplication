@@ -11,7 +11,7 @@ import '../models/bank_account_model.dart';
 import '../models/social_network_model.dart';
 
 class DatabaseService {
-  final String _baseUrl = 'https://jolusApplication.orionnx.com/';
+  final String _baseUrl = 'https://jolusapplication.orionnx.com/api';
 
   // Helper para headers
   Map<String, String> get _headers => {
@@ -44,10 +44,21 @@ class DatabaseService {
   // --- PRODUCTOS ---
   Future<List<ServiceModel>> getProducts() async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/productos.php'));
+      final response = await http.get(
+        Uri.parse('$_baseUrl/productos.php'),
+        headers: _headers,
+      );
       if (response.statusCode == 200) {
-        List<dynamic> data = jsonDecode(response.body);
-        return data.map((json) => ServiceModel.fromJson(json)).toList();
+        final decoded = jsonDecode(response.body);
+        if (decoded is List) {
+          return decoded.map((json) => ServiceModel.fromJson(json)).toList();
+        } else if (decoded is Map) {
+          if (decoded.containsKey('data') && decoded['data'] is List) {
+            return (decoded['data'] as List).map((json) => ServiceModel.fromJson(json)).toList();
+          } else if (decoded['status'] == 'error') {
+            debugPrint('Error devuelto por el servidor PHP: ${decoded['message']}');
+          }
+        }
       }
       return [];
     } catch (e) {
@@ -198,9 +209,14 @@ class DatabaseService {
 
   Future<List<Map<String, dynamic>>> getUserOrders(String userId) async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/pedidos.php?user_id=$userId'));
+      final response = await http.get(
+        Uri.parse('$_baseUrl/pedidos.php?user_id=$userId'),
+        headers: _headers,
+      );
       if (response.statusCode == 200) {
-        return List<Map<String, dynamic>>.from(jsonDecode(response.body));
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
+        return data.map((item) => Map<String, dynamic>.from(item)).toList();
       }
       return [];
     } catch (e) {
@@ -211,9 +227,14 @@ class DatabaseService {
 
   Future<List<Map<String, dynamic>>> getAllOrdersAdmin() async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/pedidos.php?action=all_admin'));
+      final response = await http.get(
+        Uri.parse('$_baseUrl/pedidos.php?action=all_admin'),
+        headers: _headers,
+      );
       if (response.statusCode == 200) {
-        return List<Map<String, dynamic>>.from(jsonDecode(response.body));
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
+        return data.map((item) => Map<String, dynamic>.from(item)).toList();
       }
       return [];
     } catch (e) {
@@ -253,7 +274,8 @@ class DatabaseService {
     try {
       final response = await http.get(Uri.parse('$_baseUrl/cuentas_bancarias.php'));
       if (response.statusCode == 200) {
-        List<dynamic> data = jsonDecode(response.body);
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
         return data.map((json) => BankAccountModel.fromJson(json)).toList();
       }
       return [];
@@ -298,7 +320,9 @@ class DatabaseService {
     try {
       final response = await http.get(Uri.parse('$_baseUrl/notificaciones.php?user_id=$userId'));
       if (response.statusCode == 200) {
-        return List<Map<String, dynamic>>.from(jsonDecode(response.body));
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
+        return data.map((item) => Map<String, dynamic>.from(item)).toList();
       }
       return [];
     } catch (e) {
@@ -342,7 +366,8 @@ class DatabaseService {
     try {
       final response = await http.get(Uri.parse('$_baseUrl/pedidos.php?action=reserved_dates'));
       if (response.statusCode == 200) {
-        List<dynamic> data = jsonDecode(response.body);
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
         return data.map((json) => DateTime.parse(json['fecha'])).toList();
       }
       return [];
@@ -370,7 +395,8 @@ class DatabaseService {
     try {
       final response = await http.get(Uri.parse('$_baseUrl/redes_sociales.php'));
       if (response.statusCode == 200) {
-        List<dynamic> data = jsonDecode(response.body);
+        final decoded = jsonDecode(response.body);
+        final List<dynamic> data = (decoded is List) ? decoded : (decoded is Map && decoded['data'] is List ? decoded['data'] : []);
         return data.map((json) => SocialNetworkModel.fromJson(json)).toList();
       }
       return [];
@@ -402,11 +428,21 @@ class DatabaseService {
   // --- ANUNCIOS Y COMUNICADOS ---
   Future<List<Map<String, dynamic>>> getAnnouncements() async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/anuncios.php'));
+      final response = await http.get(Uri.parse('$_baseUrl/comunicados.php'));
+      
       if (response.statusCode == 200) {
-        final List<dynamic> data = jsonDecode(response.body);
-        return data.map((item) => Map<String, dynamic>.from(item)).toList();
+        final decoded = jsonDecode(response.body);
+        if (decoded is List) {
+          return decoded.map((item) => Map<String, dynamic>.from(item)).toList();
+        } else if (decoded is Map) {
+          if (decoded.containsKey('data') && decoded['data'] is List) {
+            return (decoded['data'] as List).map((item) => Map<String, dynamic>.from(item)).toList();
+          } else if (decoded.containsKey('status') && decoded['status'] == 'error') {
+            debugPrint('Error devuelto por el servidor PHP: ${decoded['message']}');
+          }
+        }
       }
+      debugPrint('Respuesta inesperada del servidor (${response.statusCode}): ${response.body}');
     } catch (e) {
       debugPrint('Error al obtener anuncios del servidor: $e');
     }

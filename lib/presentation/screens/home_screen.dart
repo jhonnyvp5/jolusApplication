@@ -425,16 +425,19 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(news.length, (index) => Container(
-                margin: const EdgeInsets.symmetric(horizontal: 2),
-                width: index == 0 ? 16 : 5,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: index == 0 ? JolusColors.primary : const Color(0xFFE0E0E0),
-                  borderRadius: BorderRadius.circular(10),
-                  shape: index == 0 ? BoxShape.rectangle : BoxShape.circle,
-                ),
-              )),
+              children: List.generate(news.length, (index) {
+                final bool isActive = index == 0; // Por ahora el primero es activo
+                return Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  width: isActive ? 16 : 5,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: isActive ? JolusColors.primary : const Color(0xFFE0E0E0),
+                    shape: isActive ? BoxShape.rectangle : BoxShape.circle,
+                    borderRadius: isActive ? BorderRadius.circular(10) : null,
+                  ),
+                );
+              }),
             ),
           ],
         );

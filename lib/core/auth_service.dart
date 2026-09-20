@@ -13,7 +13,7 @@ class AuthException implements Exception {
 }
 
 class AuthService {
-  final String _baseUrl = 'https://jolusApplication.orionnx.com/';
+  final String _baseUrl = 'https://jolusapplication.orionnx.com';
 
   Future<Map<String, dynamic>?> login(String email, String password) async {
     try {

@@ -12,6 +12,12 @@ class ProductsProvider with ChangeNotifier {
   List<ServiceModel> get products => _products;
   bool get isLoading => _isLoading;
 
+  List<String> get categories {
+    final Set<String> uniqueCategories = _products.map((p) => p.categoria).toSet();
+    final List<String> sortedCategories = uniqueCategories.toList()..sort();
+    return sortedCategories;
+  }
+
   Future<void> fetchProducts() async {
     // Solo mostramos loading si la lista actual está vacía para evitar parpadeos molestos en la UI
     final bool firstLoad = _products.isEmpty;
